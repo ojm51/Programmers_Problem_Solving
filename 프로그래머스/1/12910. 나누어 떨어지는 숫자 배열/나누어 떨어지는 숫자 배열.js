@@ -22,3 +22,15 @@ function solution(arr, divisor) {
     
     return answer;
 }
+
+// 개선시킨 코드
+function solution(arr, divisor) {
+    var answer = [];
+    for (let element of arr) {
+        if(!(element % divisor)) {
+            answer.push(element);
+        }
+    }
+        
+    return answer.length ? (answer.sort((a, b) => a - b)) : [-1];
+}
