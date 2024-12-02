@@ -23,7 +23,7 @@ function solution(arr, divisor) {
     return answer;
 }
 
-// 개선시킨 코드
+// 개선한 코드
 function solution(arr, divisor) {
     var answer = [];
     for (let element of arr) {
