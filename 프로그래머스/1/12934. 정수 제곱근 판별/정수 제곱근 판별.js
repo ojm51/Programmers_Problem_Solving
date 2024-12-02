@@ -11,3 +11,13 @@ function solution(n) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(n) {
+    var answer = 0;
+    
+    const sqrt = Math.sqrt(n);
+    answer = !(sqrt % 1) ? Math.pow(sqrt + 1, 2) : -1
+    
+    return answer;
+}
