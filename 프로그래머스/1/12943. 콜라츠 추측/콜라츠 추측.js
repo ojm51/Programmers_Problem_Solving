@@ -20,3 +20,16 @@ function solution(num) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(num) {
+    var answer = 0;
+    
+    while(answer < 500) {
+        if(num === 1) return answer;
+        answer++;
+        num = (num % 2 === 0) ? (num / 2) : (num * 3 + 1);
+    }
+    
+    return -1;
+}
