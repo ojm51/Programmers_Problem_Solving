@@ -4,14 +4,5 @@
 */
 
 function solution(absolutes, signs) {
-    var answer = 0;
-    const length = absolutes.length;
-    for(let i = 0; i < length; i++) {
-        if(signs[i]) {
-            answer += absolutes[i];
-            continue;
-        }
-        answer += (absolutes[i] * (-1));
-    }
-    return answer;
+    return absolutes.reduce((acc, val, i) => acc + (signs[i] ? val : -val), 0);
 }
