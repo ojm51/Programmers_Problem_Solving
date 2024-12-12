@@ -11,6 +11,7 @@ function solution(phone_number) {
     if(length === 4) return phone_number;
     
     let arr = phone_number.split('');
+    // let arr = [...phone_number];
     for(let i = 0; i < length - 4; i++) {
         arr[i] = '*';
     }
