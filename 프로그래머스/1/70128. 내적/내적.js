@@ -13,3 +13,8 @@ function solution(a, b) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(a, b) {
+    return a.reduce((acc, cur, index) => acc += cur * b[index], 0);
+}
