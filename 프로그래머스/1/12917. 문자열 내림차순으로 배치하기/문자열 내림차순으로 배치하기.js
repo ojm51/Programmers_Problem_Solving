@@ -19,3 +19,8 @@ function solution(s) {
     // join()은 각 요소를 합친 결과를 반환(기존 것은 그대로 유지)
     return str.join('');
 }
+
+// 개선한 코드
+function solution(s) {
+    return s.split('').sort().reverse().join('');
+}
