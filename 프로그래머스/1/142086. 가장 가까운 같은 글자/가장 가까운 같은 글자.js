@@ -25,3 +25,38 @@ function solution(s) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(s) {
+    let answer = [];
+    
+    const str = [...s];
+    for(let i = 0; i < str.length; i++) {
+        const lastIndex = s.slice(0, i).lastIndexOf(str[i]);
+        if(lastIndex !== -1) {
+            answer.push(i - lastIndex);
+            continue;
+        }
+        answer.push(-1);
+    }
+    
+    return answer;
+}
+
+// gpt 개선 코드
+function solution(s) {
+    let answer = [];
+    let lastIndexMap = {};
+    
+    for (let i = 0; i < s.length; i++) {
+        const char = s[i];
+        if (lastIndexMap[char] !== undefined) {
+            answer.push(i - lastIndexMap[char]);
+        } else {
+            answer.push(-1);
+        }
+        lastIndexMap[char] = i;
+    }
+    
+    return answer;
+}
