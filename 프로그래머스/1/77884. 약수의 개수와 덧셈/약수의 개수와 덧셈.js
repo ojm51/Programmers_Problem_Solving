@@ -19,3 +19,15 @@ function solution(left, right) {
     
     return answer;
 }
+
+// 개선한 코드
+// +) 제곱근이 정수면, 약수의 개수가 홀수다
+function solution(left, right) {
+    var answer = 0;
+    
+    for(let i = left; i <= right; i++) {
+        answer += Number.isInteger(Math.sqrt(i)) ? -i : i;
+    }
+    
+    return answer;
+}
