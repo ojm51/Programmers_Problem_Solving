@@ -30,3 +30,26 @@ function solution(s) {
     
     return s * 1;
 }
+
+// 개선한 코드
+function solution(s) {
+    const NUMS = {
+        0: 'zero',
+        1: 'one',
+        2: 'two',
+        3: 'three',
+        4: 'four',
+        5: 'five',
+        6: 'six',
+        7: 'seven',
+        8: 'eight',
+        9: 'nine',
+    }
+    let answer = s;
+    
+    for(let key in NUMS) {
+        answer = answer.split(NUMS[key]).join(key);
+    }
+    
+    return Number(answer);
+}
