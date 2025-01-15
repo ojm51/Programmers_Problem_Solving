@@ -8,8 +8,24 @@
 function solution(array, commands) {
     let answer = [];
     
+    const i = 0, j = 1, k = 2;
     for(let command of commands) {
-        const [start, end, position] = command;
+        let slicedArr = array.slice(command[i] - 1, command[j]);
+        slicedArr.sort((a, b) => a - b);
+        
+        let num = slicedArr[command[k] - 1] ?? slicedArr[0];
+        answer.push(num);
+    }
+    
+    return answer;
+}
+
+// 개선한 코드
+function solution(array, commands) {
+    let answer = [];
+    
+    for(let command of commands) {
+        const [start, end, position] = command;    // 구조분해할당 활용
         let slicedArr = array.slice(start - 1, end);
         slicedArr.sort((a, b) => a - b);
         
