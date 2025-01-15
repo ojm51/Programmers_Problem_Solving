@@ -8,12 +8,12 @@
 function solution(array, commands) {
     let answer = [];
     
-    const i = 0, j = 1, k = 2;
     for(let command of commands) {
-        let slicedArr = array.slice(command[i] - 1, command[j]);
+        const [start, end, position] = command;
+        let slicedArr = array.slice(start - 1, end);
         slicedArr.sort((a, b) => a - b);
         
-        let num = slicedArr[command[k] - 1] ?? slicedArr[0];
+        let num = slicedArr[position - 1] ?? slicedArr[0];
         answer.push(num);
     }
     
