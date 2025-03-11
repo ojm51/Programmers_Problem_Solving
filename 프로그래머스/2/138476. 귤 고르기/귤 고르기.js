@@ -7,8 +7,9 @@
 
 function solution(k, tangerine) {
     var answer = 0;
-    
     let sizes = Array.from({length: Math.max(...tangerine)}, (undefined, i) => 0);
+    // let sizes = Array(Math.max(...tangerine)).fill(0);
+    
     for(let item of tangerine) {
         sizes[item - 1]++;
     }
@@ -18,6 +19,29 @@ function solution(k, tangerine) {
     for(let size of sizes) {
         if(sum >= k) break;
         sum += size;
+        answer++;
+    }
+    
+    return answer;
+}
+
+// 개선한 코드
+function solution(k, tangerine) {
+    var answer = 0;
+    let sizeCount = new Map();
+    
+    for(let size of tangerine) {
+        // sizeCount.set(size, 새로운 개수)
+        // get: 존재하지 않으면 undefined 반환
+        sizeCount.set(size, (sizeCount.get(size) || 0) + 1); 
+    }
+    
+    let sortedCounts = [...sizeCount.values()].sort((a, b) => b - a);
+    
+    let sum = 0;
+    for(let count of sortedCounts) {
+        if(sum >= k) break;
+        sum += count;
         answer++;
     }
     
