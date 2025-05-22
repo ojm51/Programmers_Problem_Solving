@@ -4,6 +4,8 @@
 3. 만약 큰 수가 작은 수로 나눠 떨어진다면 큰 수가 최소공배수
 4. 그렇지 않다면 큰 수에 2, 3, ...을 곱해 앞 쌍의 최소공배수로 나눠 떨어지는 수가 최소공배수
 5. 주어진 배열의 마지막까지 위 과정 반복
+
+유클리드 호제법: 최소공배수lcm = a * b / 최대공약수gcm
 */
 
 function solution(arr) {
@@ -34,6 +36,27 @@ function solution(arr) {
                 break;
             }
         }
+    }
+    
+    return answer;
+}
+
+// 개선한 코드
+function solution(arr) {
+    var answer = 0;
+    
+    const gcm = (a, b) => {
+        while(b !== 0) {
+            [a, b] = [b, a % b];
+        }
+        return a;
+    }
+    
+    const lcm = (a, b) => (a * b) / gcm(a, b);
+    
+    answer = arr[0];
+    for(let i = 1; i < arr.length; i++) {
+        answer = lcm(arr[i], answer);
     }
     
     return answer;
