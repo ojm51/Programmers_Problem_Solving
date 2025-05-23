@@ -5,6 +5,30 @@
 */
 
 function solution(n, words) {
+    let num = 0;
+    let turn = 0;
+    let wordObj = {};
+    wordObj[words[0]] = true;
+    
+    for(let i = 1; i < words.length; i++) {
+        // 이미 존재하는 단어인 경우
+        let isExistingWord = !(!wordObj[words[i]]);
+        // 틀린 단어인 경우
+        let isWrongLetter = (words[i - 1][words[i - 1].length - 1] !== words[i][0]);
+
+        if(isExistingWord || isWrongLetter) {
+            num = i % n + 1;
+            turn = Math.floor(i / n) + 1;
+            break;
+        }
+        wordObj[words[i]] = words[i];
+    }
+
+    return [num, turn];
+}
+
+// 개선한 코드(Set 사용)
+function solution(n, words) {
     const used = new Set();
     used.add(words[0]);
 
