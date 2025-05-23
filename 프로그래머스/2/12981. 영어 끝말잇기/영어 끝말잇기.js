@@ -5,24 +5,19 @@
 */
 
 function solution(n, words) {
-    let num = 0;
-    let turn = 0;
-    let wordObj = {};
-    wordObj[words[0]] = true;
-    
-    for(let i = 1; i < words.length; i++) {
-        // 이미 존재하는 단어인 경우
-        let isExistingWord = !(!wordObj[words[i]]);
-        // 틀린 단어인 경우
-        let isWrongLetter = (words[i - 1][words[i - 1].length - 1] !== words[i][0]);
+    const used = new Set();
+    used.add(words[0]);
 
-        if(isExistingWord || isWrongLetter) {
-            num = i % n + 1;
-            turn = Math.floor(i / n) + 1;
-            break;
+    for (let i = 1; i < words.length; i++) {
+        const prev = words[i - 1];
+        const curr = words[i];
+
+        if (used.has(curr) || prev.at(-1) !== curr[0]) {
+            return [i % n + 1, Math.floor(i / n) + 1];
         }
-        wordObj[words[i]] = words[i];
+
+        used.add(curr);
     }
 
-    return [num, turn];
+    return [0, 0];
 }
