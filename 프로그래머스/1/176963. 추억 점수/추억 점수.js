@@ -23,3 +23,23 @@ function solution(name, yearning, photo) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(name, yearning, photo) {
+    let yearningMap = {};
+    for(let i = 0; i < name.length; i++) {
+        yearningMap[name[i]] = yearning[i];
+    }
+    
+    let answer = [];
+    for(let element of photo) {
+        let score = 0;
+        
+        for(let person of element) {
+            if(yearningMap[person] !== undefined) score += yearningMap[person]
+        }
+        answer.push(score);
+    }
+    
+    return answer;
+}
