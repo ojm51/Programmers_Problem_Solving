@@ -27,3 +27,33 @@ function solution(elements) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(elements) {
+    const seqSet = new Set();
+    const N = elements.length;
+    const extended = elements.concat(elements);
+    
+    // 기준 설정1: 수열의 길이(더할 원소 개수)
+    for(let len = 1; len <= N; len++) {
+        let seq = 0;
+        
+        // 기준 설정2: 시작 원소
+        for(let start = 0; start < N; start++) {
+            if(start === 0) {
+                // 첫 번째 윈도우는 직접 계산
+                for(let i = 0; i < len; i++) {
+                    seq += extended[i];
+                }
+            }
+            else {
+                // 슬라이딩 윈도우: 앞에 하나 빼고, 뒤에 하나 더함
+                seq = seq - extended[start - 1] + extended[start + len - 1];
+            }
+            
+            seqSet.add(seq);
+        }
+    }
+    
+    return seqSet.size;
+}
