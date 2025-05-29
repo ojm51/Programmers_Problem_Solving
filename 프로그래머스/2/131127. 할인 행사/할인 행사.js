@@ -37,3 +37,35 @@ function solution(want, number, discount) {
     
     return answer;
 }
+
+// 개선한 코드 
+function solution(want, number, discount) {
+    let answer = 0;
+
+    // 객체로 선언
+    const wantObj = {};
+    for(let i = 0; i < want.length; i++) {
+        wantObj[want[i]] = number[i];
+    }
+    
+    for(let i = 0; i <= discount.length - 10; i++) {
+        const sliced = discount.slice(i, i + 10);
+        
+        const countObj = {};
+        for(let item of sliced) {
+            countObj[item] = (countObj[item] || 0) + 1;
+        }
+
+        let isMatch = true;
+        for(let key in wantObj) {
+            if(wantObj[key] !== countObj[key]) {
+                isMatch = false; 
+                break;
+            }
+        }
+
+        if(isMatch) answer++;
+    } 
+    
+    return answer;
+}
