@@ -8,6 +8,29 @@
 */
 
 function solution(citations) {
+    var answer = 0;
+    
+    citations.sort((a, b) => b - a);
+    
+    for(let hIdx = citations.length; hIdx > 0; hIdx--) {
+        let count = 0;
+        
+        for(let i = 0; i < citations.length; i++) {
+            if(hIdx <= citations[i]) count++;
+            else break;
+        }
+        
+        if(hIdx <= count) {
+            answer = hIdx;
+            break;
+        }
+    }
+    
+    return answer;
+}
+
+// 개선한 코드
+function solution(citations) {
     var answer = citations.length;
     
     citations.sort((a, b) => b - a);
