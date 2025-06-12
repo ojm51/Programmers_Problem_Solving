@@ -30,7 +30,7 @@ function solution(n, arr1, arr2) {
     for(let i = 0; i < n; i++) {
         let row = "";
         for(let j = 0; j < n; j++) {
-            if(binaryArr1[i][j] | binaryArr2[i][j]) row += "#";
+            if(binaryArr1[i][j] === "1" | binaryArr2[i][j] === "1") row += "#";
             else row += " ";
         }
         answer.push(row);
