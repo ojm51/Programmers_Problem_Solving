@@ -5,6 +5,21 @@
 */
 
 function solution(nums) {
+    const HALF_LEN = Math.floor(nums.length / 2);
+    let pokemon = new Map();
+    
+    for(let num of nums) {
+        let count = (pokemon.get(num) !== undefined) ? pokemon.get(num) + 1 : 1;
+        pokemon.set(num, count);
+    }
+    
+    if(pokemon.size >= HALF_LEN) return HALF_LEN;
+    
+    return pokemon.size;
+}
+
+// 개선한 코드
+function solution(nums) {
     const MAX = Math.floor(nums.length / 2);
     const pokemon = new Set(nums);
     
