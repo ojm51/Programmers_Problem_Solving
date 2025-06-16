@@ -5,15 +5,10 @@
 */
 
 function solution(nums) {
-    const HALF_LEN = Math.floor(nums.length / 2);
-    let pokemon = new Map();
+    const MAX = Math.floor(nums.length / 2);
+    const pokemon = new Set(nums);
     
-    for(let num of nums) {
-        let count = (pokemon.get(num) !== undefined) ? pokemon.get(num) + 1 : 1;
-        pokemon.set(num, count);
-    }
+    let answer = (pokemon.size >= MAX) ? MAX : pokemon.size;
     
-    if(pokemon.size >= HALF_LEN) return HALF_LEN;
-    
-    return pokemon.size;
+    return answer;
 }
