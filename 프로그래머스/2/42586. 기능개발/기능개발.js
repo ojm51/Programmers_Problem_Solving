@@ -24,3 +24,24 @@ function solution(progresses, speeds) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(progresses, speeds) {
+    const answer = [];
+    const days = progresses.map((progress, idx) => Math.ceil((100 - progress) / speeds[idx]));
+    
+    let prev = days[0];
+    let done = 1;
+    
+    for(let i = 1; i < days.length; i++) {
+        if(days[i] <= prev) done++;
+        else {
+            answer.push(done);
+            prev = days[i]; 
+            done = 1;
+        }
+    }
+    answer.push(done);
+    
+    return answer;
+}
