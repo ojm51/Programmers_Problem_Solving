@@ -8,3 +8,11 @@ function solution(angle) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(angle) {
+    if(angle < 90) return 1;
+    if(angle === 90) return 2;
+    if(angle < 180) return 3;
+    return 4;
+}
