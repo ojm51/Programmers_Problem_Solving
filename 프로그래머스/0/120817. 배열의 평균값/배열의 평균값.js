@@ -6,3 +6,8 @@ function solution(numbers) {
     
     return answer;
 }
+
+// 개선한 코드
+function solution(numbers) {
+    return numbers.reduce((acc, curr) => acc + curr) / numbers.length;
+}
