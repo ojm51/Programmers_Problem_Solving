@@ -30,3 +30,33 @@ function solution(cacheSize, cities) {
     }
     return answer;
 }
+
+// 개선한 코드
+function solution(cacheSize, cities) {
+    const HIT = 1, MISS = 5;
+    const cache = [];
+    let answer = 0;
+    
+    if(cacheSize === 0) return (cities.length * MISS);
+    
+    for(let city of cities) {
+        city = city.toUpperCase();
+        
+        const idx = cache.indexOf(city);
+        
+        // hit
+        if(idx !== -1) {
+            answer += HIT;
+            cache.splice(idx, 1);
+        }
+        // miss
+        else {
+            answer += MISS;
+            if(cache.length >= cacheSize) cache.pop();
+        }
+        
+        cache.unshift(city);
+    }
+    
+    return answer;
+}
