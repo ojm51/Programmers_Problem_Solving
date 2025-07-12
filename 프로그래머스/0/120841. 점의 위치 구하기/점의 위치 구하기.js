@@ -1,6 +1,7 @@
 function solution(dot) {
-    const isXPositive = dot[0] > 0 ? true : false;
-    const isYPositive = dot[1] > 0 ? true : false;
+    const [x, y] = dot;
+    const isXPositive = x > 0 ? true : false;
+    const isYPositive = y > 0 ? true : false;
     
     if(isXPositive) {
         if(isYPositive) return 1;
