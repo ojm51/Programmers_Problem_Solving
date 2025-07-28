@@ -7,3 +7,6 @@ function solution(arr) {
     
     return answer;
 }
+
+// 개선한 코드
+const solution = (arr) => arr.join("");
