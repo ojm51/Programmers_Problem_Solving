@@ -4,3 +4,6 @@ function solution(num_list) {
     }
     return -1;
 }
+
+// 개선한 코드
+const solution = (num_list) => num_list.findIndex(num => num < 0);
