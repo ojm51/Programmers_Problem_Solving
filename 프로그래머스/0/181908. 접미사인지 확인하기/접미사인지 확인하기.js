@@ -5,3 +5,6 @@ function solution(my_string, is_suffix) {
     
     return sliced_str === is_suffix ? 1 : 0;
 }
+
+// 개선한 코드
+const solution = (my_string, is_suffix) => my_string.endsWith(is_suffix) ? 1 : 0;
