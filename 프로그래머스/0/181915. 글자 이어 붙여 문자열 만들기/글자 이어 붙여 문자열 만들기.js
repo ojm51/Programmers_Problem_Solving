@@ -1,0 +1,1 @@
+const solution = (my_string, index_list) => index_list.reduce((acc, cur) => acc += my_string[cur], '');
