@@ -14,3 +14,6 @@ function solution(arr, k) {
     
     return answer;
 }
+
+// 개선한 코드
+const solution = (arr, k) => arr.map(ele => (k % 2 !== 0) ? ele * k : ele + k);
