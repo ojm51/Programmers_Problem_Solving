@@ -13,3 +13,6 @@ function solution(arr, delete_list) {
     
     return answer;
 }
+
+// 개선한 코드
+const solution = (arr, delete_list) => arr.filter(item => !delete_list.includes(item));
