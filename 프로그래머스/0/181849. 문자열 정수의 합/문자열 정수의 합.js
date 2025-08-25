@@ -1,0 +1,1 @@
+const solution = (num_str) => [...num_str].reduce((sum, num) => sum + Number(num), 0);
