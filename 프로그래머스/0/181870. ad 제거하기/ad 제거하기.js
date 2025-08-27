@@ -8,3 +8,6 @@ function solution(strArr) {
     
     return answer;
 }
+
+// 개선한 코드
+const solution = (strArr) => strArr.filter(str => !str.includes('ad'));
