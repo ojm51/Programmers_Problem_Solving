@@ -15,3 +15,7 @@ function solution(str) {
     
     return answer;
 }
+
+// 개선한 코드
+// 빈 문자열은 Falsy (<-> 빈 객체, 빈 배열은 Truthy)
+const solution = (str) => str.split(" ").filter(char => char);
