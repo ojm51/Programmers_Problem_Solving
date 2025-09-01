@@ -7,3 +7,6 @@ function solution(strArr) {
     
     return answer;
 }
+
+// 개선한 코드
+const solution = (strArr) => strArr.map((str, idx) => (idx % 2 === 0) ? strArr[idx].toLowerCase() : strArr[idx].toUpperCase());
