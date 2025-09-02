@@ -4,3 +4,6 @@ function solution(a, b) {
     
     return (ab >= ba) ? Number(ab) : Number(ba);
 }
+
+// 개선한 코드
+const solution = (a, b) => Math.max(`${a}${b}`, `${b}${a}`);
