@@ -1,0 +1,1 @@
+const solution = (number) => [...number].reduce((acc, num) => acc + +num, 0) % 9;
