@@ -1,0 +1,1 @@
+const solution = (myString) => myString.trim().split("x").filter(c => c !== "").sort();
