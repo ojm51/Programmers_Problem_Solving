@@ -12,3 +12,6 @@ function solution(my_string) {
     
     return my_string.split(".").join("");
 } 
+
+// 개선된 코드
+const solution = (my_string) => [...new Set(my_string)].join("");
