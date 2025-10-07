@@ -1,15 +1,25 @@
 function solution(arr) {
-    function isSquare(num) {
+    function isPowerOfTwo(num) {
         return Number.isInteger(Math.log2(num));
     }
     
-    const answer = arr;
     const length = arr.length;
     
-    if(isSquare(length)) return answer;
+    if(isPowerOfTwo(length)) return arr;
     
-    let i = 1;
-    while(!isSquare(length + i)) i++;
+    let zeros = 1;
+    while(!isPowerOfTwo(length + zeros)) zeros++;
     
-    return [...answer, ...Array(i).fill(0)];
+    return [...arr, ...Array(zeros).fill(0)];
+}
+
+// 개선한 코드
+function solution(arr) {
+    const n = arr.length;
+    let target = 1;
+    
+    while (target < n) target *= 2;  
+
+    const zeros = target - n;
+    return [...arr, ...Array(zeros).fill(0)];
 }
