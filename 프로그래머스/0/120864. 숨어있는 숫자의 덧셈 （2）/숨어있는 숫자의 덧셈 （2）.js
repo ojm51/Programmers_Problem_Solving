@@ -1,0 +1,1 @@
+const solution = my_string => my_string.split(/[a-zA-Z]/).reduce((acc, cur) => acc + (Number.parseInt(cur) || 0), 0);
