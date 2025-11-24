@@ -16,3 +16,23 @@ function solution(my_string) {
     
     return stack[0];
 }
+
+// 개선한 코드
+function solution(my_string) {
+    let tokens = my_string.split(' ');
+    let stack = [];
+    
+    tokens.forEach(token => {
+        const top = stack[stack.length - 1];
+        
+        if(top === '+' || top === '-') {
+            const operator = stack.pop();
+            const prevNum = Number(stack.pop());
+            const currNum = Number(token);
+            stack.push(operator === '+' ? prevNum + currNum : prevNum - currNum);
+        }
+        else stack.push(token);
+    });
+    
+    return stack[0];
+}
