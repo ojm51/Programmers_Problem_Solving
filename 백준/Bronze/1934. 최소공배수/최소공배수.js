@@ -2,16 +2,19 @@ const input = require("fs").readFileSync('/dev/stdin').toString().trim().split('
 const lines = input.slice(1);
 const answer = [];
 
-lines.forEach(line => {
-  const [num1, num2] = line.split(' ').map(Number).sort((a, b) => a - b);
-  
-  for(let i = 1; i <= num2; i++) {
-    const candidate = num2 * i;
-    if(candidate % num1 === 0) {
-      answer.push(candidate);
-      break;
-    }
+const gcd = (a, b) => {
+  while(b !== 0) {
+    let temp = a % b;
+    a = b;
+    b = temp;
   }
+  return a;
+}
+
+lines.forEach(line => {
+  const [num1, num2] = line.split(' ').map(Number);
+  const lcm = num1 * num2 / gcd(num1, num2);
+  answer.push(lcm);
 });
 
 console.log(answer.join('\n'));
