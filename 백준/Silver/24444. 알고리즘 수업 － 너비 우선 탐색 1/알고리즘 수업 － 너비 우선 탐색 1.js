@@ -18,8 +18,9 @@ const queue = [];
 order[R] = count++;
 queue.push(R);
 
-while(queue.length > 0) {
-  const node = queue.shift();
+let head = 0;
+while(head < queue.length) {
+  const node = queue[head++];
   
   for(let nextNode of edges[node]) {
     if(order[nextNode] === 0) {
