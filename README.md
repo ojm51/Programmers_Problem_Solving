@@ -1,2 +1,2 @@
-# Programmers_Problem_Solving
-Repository for recording Programmers algorithm problem solving
+# Problem_Solving
+Repository for Programmers and BOJ algorithm problem solving
